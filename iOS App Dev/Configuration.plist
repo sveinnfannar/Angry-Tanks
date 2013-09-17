@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>tankPosition</key>
+	<string>{35,200}</string>
+	<key>firePosition</key>
+	<string>{38,54}</string>
+	<key>healthBarPosition</key>
+	<string>{10,300}</string>
+	<key>menuButtonPosition</key>
+	<string>{240,10}</string>
+	<key>windMaxSpeed</key>
+	<integer>50</integer>
+</dict>
+</plist>

@@ -16,15 +16,65 @@
     self = [super init];
     if (self)
     {
+        srandom(time(NULL));
+        
+        _configuration = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Configuration" ofType:@"plist"]];
+        
+        NSLog(@"%@", [[NSBundle mainBundle] pathForResource:@"Configuration" ofType:@"plist"]);
+        
+        [self generateRandomWind];
+        [self setupGraphicsLandscape];
+        
         // Your initilization code goes here
         [self scheduleUpdate];
     }
     return self;
 }
 
+- (void)setupGraphicsLandscape
+{
+    _skyLayer = [CCLayerGradient layerWithColor:ccc4(89, 67, 245, 255) fadingTo:ccc4(67, 219, 245, 255)];
+    [self addChild:_skyLayer];
+    
+    for (NSUInteger i = 0; i < 4; ++i)
+    {
+        CCSprite *cloud = [CCSprite spriteWithFile:@"Cloud.png"];
+        cloud.position = ccp(CCRANDOM_0_1() * [CCDirector sharedDirector].winSize.width, CCRANDOM_0_1() * ([CCDirector  sharedDirector].winSize.height / 2) + [CCDirector sharedDirector].winSize.height / 2);
+        [_skyLayer addChild:cloud];
+    }
+    
+    CCSprite *mountains = [CCSprite spriteWithFile:@"BackgroundMountains.png"];
+    mountains.anchorPoint = ccp(0, 0);
+    [self addChild:mountains];
+    
+    CCSprite *landscape = [CCSprite spriteWithFile:@"Landscape.png"];
+    landscape.anchorPoint = ccp(0, 0);
+    [self addChild:landscape];
+}
+
 - (void)update:(ccTime)delta
 {
     // Update logic goes here
+    
+    for (CCSprite *cloud in _skyLayer.children)
+    {
+        CGPoint newPosition = ccp(cloud.position.x + (_windSpeed * delta), cloud.position.y);
+        if (newPosition.x < -cloud.contentSize.width / 2)
+        {
+            newPosition.x = [CCDirector sharedDirector].winSize.width + (cloud.contentSize.width / 2);
+        }
+        else if (newPosition.x > ([CCDirector sharedDirector].winSize.width + cloud.contentSize.width / 2))
+        {
+            newPosition.x = -cloud.contentSize.width / 2;
+        }
+        
+        cloud.position = newPosition;
+    }
+}
+
+- (void)generateRandomWind
+{
+    _windSpeed = CCRANDOM_MINUS1_1() * [_configuration[@"windMaxSpeed"] floatValue];
 }
 
 @end

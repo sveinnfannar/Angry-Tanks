@@ -11,6 +11,9 @@
 
 @interface Game : CCScene
 {
+    NSDictionary *_configuration;
+    CCLayerGradient *_skyLayer;
+    CGFloat _windSpeed;
 }
 
 @end
