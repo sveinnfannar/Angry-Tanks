@@ -9,8 +9,7 @@
 
 // Import the interfaces
 #import "IntroLayer.h"
-#import "HelloWorldLayer.h"
-
+#import "Game.h"
 
 #pragma mark - IntroLayer
 
@@ -18,7 +17,7 @@
 @implementation IntroLayer
 
 // Helper class method that creates a Scene with the HelloWorldLayer as the only child.
-+(CCScene *) scene
++ (CCScene *)scene
 {
 	// 'scene' is an autorelease object.
 	CCScene *scene = [CCScene node];
@@ -34,9 +33,9 @@
 }
 
 // 
--(id) init
+- (id)init
 {
-	if( (self=[super init])) {
+	if((self=[super init])) {
 
 		// ask director for the window size
 		CGSize size = [[CCDirector sharedDirector] winSize];
@@ -58,9 +57,11 @@
 	return self;
 }
 
--(void) onEnter
+- (void)onEnter
 {
 	[super onEnter];
-	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[HelloWorldLayer scene] ]];
+    Game *game = [[Game alloc] init];
+	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:game]];
 }
+
 @end

@@ -42,7 +42,7 @@
 // This is needed for iOS4 and iOS5 in order to ensure
 // that the 1st scene has the correct dimensions
 // This is not needed on iOS6 and could be added to the application:didFinish...
--(void) directorDidReshapeProjection:(CCDirector*)director
+- (void)directorDidReshapeProjection:(CCDirector*)director
 {
 	if(director.runningScene == nil) {
 		// Add the first scene to the stack. The director will draw it immediately into the framebuffer. (Animation is started automatically when the view is displayed.)
@@ -140,29 +140,29 @@
 }
 
 // getting a call, pause the game
--(void) applicationWillResignActive:(UIApplication *)application
+- (void)applicationWillResignActive:(UIApplication *)application
 {
 	if( [navController_ visibleViewController] == director_ )
 		[director_ pause];
 }
 
 // call got rejected
--(void) applicationDidBecomeActive:(UIApplication *)application
+- (void)applicationDidBecomeActive:(UIApplication *)application
 {
 	[[CCDirector sharedDirector] setNextDeltaTimeZero:YES];	
-	if( [navController_ visibleViewController] == director_ )
+	if([navController_ visibleViewController] == director_)
 		[director_ resume];
 }
 
--(void) applicationDidEnterBackground:(UIApplication*)application
+- (void)applicationDidEnterBackground:(UIApplication*)application
 {
-	if( [navController_ visibleViewController] == director_ )
+	if([navController_ visibleViewController] == director_)
 		[director_ stopAnimation];
 }
 
--(void) applicationWillEnterForeground:(UIApplication*)application
+- (void)applicationWillEnterForeground:(UIApplication*)application
 {
-	if( [navController_ visibleViewController] == director_ )
+	if([navController_ visibleViewController] == director_)
 		[director_ startAnimation];
 }
 
@@ -179,12 +179,12 @@
 }
 
 // next delta time will be zero
--(void) applicationSignificantTimeChange:(UIApplication *)application
+- (void)applicationSignificantTimeChange:(UIApplication *)application
 {
 	[[CCDirector sharedDirector] setNextDeltaTimeZero:YES];
 }
 
-- (void) dealloc
+- (void)dealloc
 {
 	[window_ release];
 	[navController_ release];

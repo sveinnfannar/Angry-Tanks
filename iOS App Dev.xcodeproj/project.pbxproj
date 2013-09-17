@@ -139,10 +139,10 @@
 		0B3130CC17E85CF400D0829B /* vec4.c in Sources */ = {isa = PBXBuildFile; fileRef = 0B3130CB17E85CF400D0829B /* vec4.c */; };
 		0B3130D117E85CF400D0829B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B3130D017E85CF400D0829B /* main.m */; };
 		0B3130D417E85CF400D0829B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B3130D317E85CF400D0829B /* AppDelegate.m */; };
-		0B3130D717E85CF400D0829B /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B3130D617E85CF400D0829B /* HelloWorldLayer.m */; };
 		0B3130DA17E85CF400D0829B /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B3130D917E85CF400D0829B /* IntroLayer.m */; };
 		0B3130E117E85D0D00D0829B /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B3130E017E85D0D00D0829B /* ImageIO.framework */; };
 		0B31313D17E85ECE00D0829B /* libChipmunkPro-iPhone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B31313B17E85ECE00D0829B /* libChipmunkPro-iPhone.a */; };
+		0B31314017E8662800D0829B /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B31313F17E8662800D0829B /* Game.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -423,8 +423,6 @@
 		0B3130D017E85CF400D0829B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0B3130D217E85CF400D0829B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0B3130D317E85CF400D0829B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		0B3130D517E85CF400D0829B /* HelloWorldLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelloWorldLayer.h; sourceTree = "<group>"; };
-		0B3130D617E85CF400D0829B /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
 		0B3130D817E85CF400D0829B /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
 		0B3130D917E85CF400D0829B /* IntroLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
 		0B3130E017E85D0D00D0829B /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
@@ -470,6 +468,8 @@
 		0B31313A17E85ECE00D0829B /* cpPolyline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpPolyline.h; sourceTree = "<group>"; };
 		0B31313B17E85ECE00D0829B /* libChipmunkPro-iPhone.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libChipmunkPro-iPhone.a"; sourceTree = "<group>"; };
 		0B31313C17E85ECE00D0829B /* ObjectiveChipmunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectiveChipmunk.h; sourceTree = "<group>"; };
+		0B31313E17E8662800D0829B /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		0B31313F17E8662800D0829B /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -535,10 +535,10 @@
 			children = (
 				0B3130D217E85CF400D0829B /* AppDelegate.h */,
 				0B3130D317E85CF400D0829B /* AppDelegate.m */,
-				0B3130D517E85CF400D0829B /* HelloWorldLayer.h */,
-				0B3130D617E85CF400D0829B /* HelloWorldLayer.m */,
 				0B3130D817E85CF400D0829B /* IntroLayer.h */,
 				0B3130D917E85CF400D0829B /* IntroLayer.m */,
+				0B31313E17E8662800D0829B /* Game.h */,
+				0B31313F17E8662800D0829B /* Game.m */,
 				0B312F4217E85CF200D0829B /* Resources */,
 				0B312F5A17E85CF200D0829B /* libs */,
 				0B3130CE17E85CF400D0829B /* Supporting Files */,
@@ -1177,8 +1177,8 @@
 				0B3130CC17E85CF400D0829B /* vec4.c in Sources */,
 				0B3130D117E85CF400D0829B /* main.m in Sources */,
 				0B3130D417E85CF400D0829B /* AppDelegate.m in Sources */,
-				0B3130D717E85CF400D0829B /* HelloWorldLayer.m in Sources */,
 				0B3130DA17E85CF400D0829B /* IntroLayer.m in Sources */,
+				0B31314017E8662800D0829B /* Game.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
