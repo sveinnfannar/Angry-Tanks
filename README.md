@@ -1,4 +1,4 @@
-iOS-Game-Dev-Skeleton
-=====================
+iOS-Dev-Course-Lecture-Code
+===========================
 
-An ARC enabled Cocos2D skeleton with Chipmunk Pro Trial
+Code from lectures in Reykjavík University's iOS App Dev Course Fall 2013
