@@ -6,10 +6,13 @@
 //  Copyright 2013 Sveinn Fannar Kristjansson. All rights reserved.
 //
 
-#import "Game.h"
+#import "GameScene.h"
 #import "Tank.h"
+#import "InputLayer.h"
 
-@implementation Game
+@implementation GameScene
+
+#pragma mark - Initilization
 
 - (id)init
 {
@@ -25,10 +28,15 @@
         [self generateRandomWind];
         [self setupGraphicsLandscape];
         
+        // Add a tank
         NSString *tankPositionString = _configuration[@"tankPosition"];
         _tank = [[Tank alloc] initWithPosition:CGPointFromString(tankPositionString)];
         [self addChild:_tank];
-        [_tank jump];
+        
+        // Create a input layer
+        InputLayer *inputLayer = [[InputLayer alloc] init];
+        inputLayer.delegate = self;
+        [self addChild:inputLayer];
         
         // Your initilization code goes here
         [self scheduleUpdate];
@@ -58,6 +66,14 @@
     [self addChild:landscape];
 }
 
+- (void)generateRandomWind
+{
+    _windSpeed = CCRANDOM_MINUS1_1() * [_configuration[@"windMaxSpeed"] floatValue];
+}
+
+
+#pragma mark - Update
+
 - (void)update:(ccTime)delta
 {
     // Update logic goes here
@@ -80,9 +96,11 @@
     }
 }
 
-- (void)generateRandomWind
+#pragma mark - My Touch Delegate Methods
+
+- (void)touchEnded
 {
-    _windSpeed = CCRANDOM_MINUS1_1() * [_configuration[@"windMaxSpeed"] floatValue];
+    [_tank jump];
 }
 
 @end
