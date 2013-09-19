@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@protocol InputLayerDelgate <NSObject>
+@protocol InputLayerDelegate <NSObject>
 
 - (void)touchEnded;
 
@@ -17,6 +17,6 @@
 
 @interface InputLayer : CCLayer
 
-@property (nonatomic, weak) id<InputLayerDelgate> delegate;
+@property (nonatomic, weak) id<InputLayerDelegate> delegate;
 
 @end

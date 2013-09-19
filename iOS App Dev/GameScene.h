@@ -11,7 +11,7 @@
 #import "InputLayer.h"
 
 @class Tank;
-@interface GameScene : CCScene <InputLayerDelgate>
+@interface GameScene : CCScene <InputLayerDelegate>
 {
     CGSize _winSize;
     NSDictionary *_configuration;
