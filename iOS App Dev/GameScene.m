@@ -31,7 +31,7 @@
         // Add a tank
         NSString *tankPositionString = _configuration[@"tankPosition"];
         _tank = [[Tank alloc] initWithPosition:CGPointFromString(tankPositionString)];
-        [self addChild:_tank];
+        [_gameNode addChild:_tank];
         
         // Create a input layer
         InputLayer *inputLayer = [[InputLayer alloc] init];
@@ -57,13 +57,20 @@
         [_skyLayer addChild:cloud];
     }
     
+    _parallaxNode = [CCParallaxNode node];
+    [self addChild:_parallaxNode];
+    
     CCSprite *mountains = [CCSprite spriteWithFile:@"BackgroundMountains.png"];
     mountains.anchorPoint = ccp(0, 0);
-    [self addChild:mountains];
+    [_parallaxNode addChild:mountains z:0 parallaxRatio:ccp(0.5f, 1.0f) positionOffset:CGPointZero];
     
     CCSprite *landscape = [CCSprite spriteWithFile:@"Landscape.png"];
     landscape.anchorPoint = ccp(0, 0);
-    [self addChild:landscape];
+    _landscapeWidth = landscape.contentSize.width;
+    [_parallaxNode addChild:landscape z:1 parallaxRatio:ccp(1.0f, 1.0f) positionOffset:CGPointZero];
+    
+    _gameNode = [CCNode node];
+    [_parallaxNode addChild:_gameNode z:2 parallaxRatio:ccp(1.0f, 1.0f) positionOffset:CGPointZero];
 }
 
 - (void)generateRandomWind
@@ -94,12 +101,21 @@
         
         cloud.position = newPosition;
     }
+    
+    if (_followTank == YES)
+    {
+        if (_tank.position.x >= (_winSize.width / 2) && _tank.position.x < (_landscapeWidth - (_winSize.width / 2)))
+        {
+            _parallaxNode.position = ccp(-(_tank.position.x - (_winSize.width / 2)), 0);
+        }
+    }
 }
 
 #pragma mark - My Touch Delegate Methods
 
 - (void)touchEnded
 {
+    _followTank = YES;
     [_tank jump];
 }
 

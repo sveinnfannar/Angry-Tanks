@@ -18,6 +18,11 @@
     CCLayerGradient *_skyLayer;
     CGFloat _windSpeed;
     Tank *_tank;
+    
+    CCParallaxNode *_parallaxNode;
+    CCNode *_gameNode;
+    BOOL _followTank;
+    CGFloat _landscapeWidth;
 }
 
 @end

@@ -23,7 +23,7 @@
 
 - (void)jump
 {
-    CCJumpTo *jump = [CCJumpTo actionWithDuration:1.5f position:ccp(230, 215) height:100.0f jumps:1];
+    CCJumpTo *jump = [CCJumpTo actionWithDuration:1.5f position:ccp(530, 215) height:100.0f jumps:1];
     CCRotateBy *rotate = [CCRotateBy actionWithDuration:1.5f angle:350];
     [self runAction:jump];
     [self runAction:rotate];
