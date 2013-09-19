@@ -7,7 +7,7 @@
 //
 
 #import "Game.h"
-
+#import "Tank.h"
 
 @implementation Game
 
@@ -20,10 +20,15 @@
         
         _configuration = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Configuration" ofType:@"plist"]];
         
-        NSLog(@"%@", [[NSBundle mainBundle] pathForResource:@"Configuration" ofType:@"plist"]);
-        
+        _winSize = [CCDirector sharedDirector].winSize;
+               
         [self generateRandomWind];
         [self setupGraphicsLandscape];
+        
+        NSString *tankPositionString = _configuration[@"tankPosition"];
+        _tank = [[Tank alloc] initWithPosition:CGPointFromString(tankPositionString)];
+        [self addChild:_tank];
+        [_tank jump];
         
         // Your initilization code goes here
         [self scheduleUpdate];
@@ -33,13 +38,14 @@
 
 - (void)setupGraphicsLandscape
 {
+    // Sky
     _skyLayer = [CCLayerGradient layerWithColor:ccc4(89, 67, 245, 255) fadingTo:ccc4(67, 219, 245, 255)];
     [self addChild:_skyLayer];
     
     for (NSUInteger i = 0; i < 4; ++i)
     {
         CCSprite *cloud = [CCSprite spriteWithFile:@"Cloud.png"];
-        cloud.position = ccp(CCRANDOM_0_1() * [CCDirector sharedDirector].winSize.width, CCRANDOM_0_1() * ([CCDirector  sharedDirector].winSize.height / 2) + [CCDirector sharedDirector].winSize.height / 2);
+        cloud.position = ccp(CCRANDOM_0_1() * _winSize.width, (CCRANDOM_0_1() * 200) + _winSize.height / 2);
         [_skyLayer addChild:cloud];
     }
     
@@ -58,15 +64,17 @@
     
     for (CCSprite *cloud in _skyLayer.children)
     {
+        CGFloat cloudHalfWidth = cloud.contentSize.width / 2;
         CGPoint newPosition = ccp(cloud.position.x + (_windSpeed * delta), cloud.position.y);
-        if (newPosition.x < -cloud.contentSize.width / 2)
+        if (newPosition.x < -cloudHalfWidth)
         {
-            newPosition.x = [CCDirector sharedDirector].winSize.width + (cloud.contentSize.width / 2);
+            newPosition.x = _skyLayer.contentSize.width + cloudHalfWidth;
         }
-        else if (newPosition.x > ([CCDirector sharedDirector].winSize.width + cloud.contentSize.width / 2))
+        else if (newPosition.x > (_skyLayer.contentSize.width + cloudHalfWidth))
         {
-            newPosition.x = -cloud.contentSize.width / 2;
+            newPosition.x = -cloudHalfWidth;
         }
+
         
         cloud.position = newPosition;
     }

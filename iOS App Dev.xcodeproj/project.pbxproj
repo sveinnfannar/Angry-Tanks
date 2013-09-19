@@ -150,6 +150,9 @@
 		0B3130E117E85D0D00D0829B /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B3130E017E85D0D00D0829B /* ImageIO.framework */; };
 		0B31313D17E85ECE00D0829B /* libChipmunkPro-iPhone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B31313B17E85ECE00D0829B /* libChipmunkPro-iPhone.a */; };
 		0B31314017E8662800D0829B /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B31313F17E8662800D0829B /* Game.m */; };
+		0B89900317EB568F00D856EB /* Tank.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B89900217EB568F00D856EB /* Tank.m */; };
+		0B89900617EB56BB00D856EB /* Tank-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B89900417EB56BB00D856EB /* Tank-hd.png */; };
+		0B89900717EB56BB00D856EB /* Tank.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B89900517EB56BB00D856EB /* Tank.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -484,6 +487,10 @@
 		0B31313C17E85ECE00D0829B /* ObjectiveChipmunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectiveChipmunk.h; sourceTree = "<group>"; };
 		0B31313E17E8662800D0829B /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		0B31313F17E8662800D0829B /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
+		0B89900117EB568F00D856EB /* Tank.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tank.h; sourceTree = "<group>"; };
+		0B89900217EB568F00D856EB /* Tank.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tank.m; sourceTree = "<group>"; };
+		0B89900417EB56BB00D856EB /* Tank-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tank-hd.png"; sourceTree = "<group>"; };
+		0B89900517EB56BB00D856EB /* Tank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tank.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -553,6 +560,8 @@
 				0B3130D917E85CF400D0829B /* IntroLayer.m */,
 				0B31313E17E8662800D0829B /* Game.h */,
 				0B31313F17E8662800D0829B /* Game.m */,
+				0B89900117EB568F00D856EB /* Tank.h */,
+				0B89900217EB568F00D856EB /* Tank.m */,
 				0B312F4217E85CF200D0829B /* Resources */,
 				0B312F5A17E85CF200D0829B /* libs */,
 				0B3130CE17E85CF400D0829B /* Supporting Files */,
@@ -563,6 +572,8 @@
 		0B312F4217E85CF200D0829B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0B89900417EB56BB00D856EB /* Tank-hd.png */,
+				0B89900517EB56BB00D856EB /* Tank.png */,
 				0B0397FC17E8C8D000210E20 /* Cloud-hd.png */,
 				0B0397FD17E8C8D000210E20 /* Cloud.png */,
 				0B0397FA17E8C78900210E20 /* Configuration.plist */,
@@ -1085,6 +1096,8 @@
 				0B0397FB17E8C78900210E20 /* Configuration.plist in Resources */,
 				0B0397FE17E8C8D000210E20 /* Cloud-hd.png in Resources */,
 				0B0397FF17E8C8D000210E20 /* Cloud.png in Resources */,
+				0B89900617EB56BB00D856EB /* Tank-hd.png in Resources */,
+				0B89900717EB56BB00D856EB /* Tank.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1207,6 +1220,7 @@
 				0B3130D417E85CF400D0829B /* AppDelegate.m in Sources */,
 				0B3130DA17E85CF400D0829B /* IntroLayer.m in Sources */,
 				0B31314017E8662800D0829B /* Game.m in Sources */,
+				0B89900317EB568F00D856EB /* Tank.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

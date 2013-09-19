@@ -9,11 +9,14 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
+@class Tank;
 @interface Game : CCScene
 {
+    CGSize _winSize;
     NSDictionary *_configuration;
     CCLayerGradient *_skyLayer;
     CGFloat _windSpeed;
+    Tank *_tank;
 }
 
 @end

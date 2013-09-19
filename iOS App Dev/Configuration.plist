@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>tankPosition</key>
-	<string>{35,200}</string>
+	<string>{90,165}</string>
 	<key>firePosition</key>
 	<string>{38,54}</string>
 	<key>healthBarPosition</key>
