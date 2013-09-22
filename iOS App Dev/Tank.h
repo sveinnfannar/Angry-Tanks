@@ -9,12 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface Tank : CCSprite
+@interface Tank : CCPhysicsSprite
 {
-    
+    ChipmunkSpace *_space;
 }
 
-- (id)initWithPosition:(CGPoint)position;
-- (void)jump;
+- (id)initWithSpace:(ChipmunkSpace *)space position:(CGPoint)position;
+- (void)jumpWithPower:(CGFloat)power vector:(cpVect)vector;
 
 @end

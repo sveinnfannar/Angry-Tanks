@@ -24,12 +24,15 @@
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
+    _touchBeganDate = [NSDate date];
     return YES;
 }
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
 {
-    [_delegate touchEnded];
+    CGPoint position = [self convertTouchToNodeSpace:touch];
+    NSTimeInterval timeSinceTouchBegan = [_touchBeganDate timeIntervalSinceNow];
+    [_delegate touchEndedAtPositon:position afterDelay:-timeSinceTouchBegan];
 }
 
 @end

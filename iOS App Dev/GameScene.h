@@ -18,7 +18,8 @@
     CCLayerGradient *_skyLayer;
     CGFloat _windSpeed;
     Tank *_tank;
-    
+    ChipmunkSpace *_space;
+    ccTime _accumulator;
     CCParallaxNode *_parallaxNode;
     CCNode *_gameNode;
     BOOL _followTank;

@@ -9,6 +9,7 @@
 #import "GameScene.h"
 #import "Tank.h"
 #import "InputLayer.h"
+#import "ChipmunkAutoGeometry.h"
 
 @implementation GameScene
 
@@ -20,17 +21,29 @@
     if (self)
     {
         srandom(time(NULL));
+        _winSize = [CCDirector sharedDirector].winSize;
         
+        // Load configuration file
         _configuration = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Configuration" ofType:@"plist"]];
         
-        _winSize = [CCDirector sharedDirector].winSize;
-               
+        // Create physics world
+        _space = [[ChipmunkSpace alloc] init];
+        CGFloat gravity = [_configuration[@"gravity"] floatValue];
+        _space.gravity = ccp(0.0f, -gravity);
+        
+        // Setup world
         [self generateRandomWind];
         [self setupGraphicsLandscape];
+        [self setupPhysicsLandscape];
+        
+        // Create debug node
+        CCPhysicsDebugNode *debugNode = [CCPhysicsDebugNode debugNodeForChipmunkSpace:_space];
+        debugNode.visible = NO;
+        [self addChild:debugNode];
         
         // Add a tank
         NSString *tankPositionString = _configuration[@"tankPosition"];
-        _tank = [[Tank alloc] initWithPosition:CGPointFromString(tankPositionString)];
+        _tank = [[Tank alloc] initWithSpace:_space position:CGPointFromString(tankPositionString)];
         [_gameNode addChild:_tank];
         
         // Create a input layer
@@ -73,6 +86,23 @@
     [_parallaxNode addChild:_gameNode z:2 parallaxRatio:ccp(1.0f, 1.0f) positionOffset:CGPointZero];
 }
 
+- (void)setupPhysicsLandscape
+{
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"Landscape" withExtension:@"png"];
+    ChipmunkImageSampler *sampler = [ChipmunkImageSampler samplerWithImageFile:url isMask:NO];
+    
+    ChipmunkPolylineSet *contour = [sampler marchAllWithBorder:NO hard:YES];
+    ChipmunkPolyline *line = [contour lineAtIndex:0];
+    ChipmunkPolyline *simpleLine = [line simplifyCurves:1];
+    
+    ChipmunkBody *terrainBody = [ChipmunkBody staticBody];
+    NSArray *terrainShapes = [simpleLine asChipmunkSegmentsWithBody:terrainBody radius:0 offset:cpvzero];
+    for (ChipmunkShape *shape in terrainShapes)
+    {
+        [_space addShape:shape];
+    }
+}
+
 - (void)generateRandomWind
 {
     _windSpeed = CCRANDOM_MINUS1_1() * [_configuration[@"windMaxSpeed"] floatValue];
@@ -83,7 +113,13 @@
 
 - (void)update:(ccTime)delta
 {
-    // Update logic goes here
+    CGFloat fixedTimeStep = 1.0f / 240.0f;
+    _accumulator += delta;
+    while (_accumulator > fixedTimeStep)
+    {
+        [_space step:fixedTimeStep];
+        _accumulator -= fixedTimeStep;
+    }
     
     for (CCSprite *cloud in _skyLayer.children)
     {
@@ -113,10 +149,11 @@
 
 #pragma mark - My Touch Delegate Methods
 
-- (void)touchEnded
+- (void)touchEndedAtPositon:(CGPoint)position afterDelay:(NSTimeInterval)delay
 {
     _followTank = YES;
-    [_tank jump];
+    cpVect normalizedVector = cpvnormalize(cpvsub(position, _tank.position));
+    [_tank jumpWithPower:delay * 300 vector:normalizedVector];
 }
 
 @end

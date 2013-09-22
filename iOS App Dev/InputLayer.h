@@ -11,11 +11,14 @@
 
 @protocol InputLayerDelegate <NSObject>
 
-- (void)touchEnded;
+- (void)touchEndedAtPositon:(CGPoint)point afterDelay:(NSTimeInterval)delay;
 
 @end
 
 @interface InputLayer : CCLayer
+{
+    NSDate *_touchBeganDate;
+}
 
 @property (nonatomic, weak) id<InputLayerDelegate> delegate;
 
