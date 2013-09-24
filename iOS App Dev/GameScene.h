@@ -11,6 +11,7 @@
 #import "InputLayer.h"
 
 @class Tank;
+@class Goal;
 @interface GameScene : CCScene <InputLayerDelegate>
 {
     CGSize _winSize;
@@ -18,6 +19,7 @@
     CCLayerGradient *_skyLayer;
     CGFloat _windSpeed;
     Tank *_tank;
+    Goal *_goal;
     ChipmunkSpace *_space;
     ccTime _accumulator;
     CCParallaxNode *_parallaxNode;

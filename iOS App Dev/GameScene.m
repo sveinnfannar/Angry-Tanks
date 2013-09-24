@@ -10,6 +10,7 @@
 #import "Tank.h"
 #import "InputLayer.h"
 #import "ChipmunkAutoGeometry.h"
+#import "Goal.h"
 
 @implementation GameScene
 
@@ -31,6 +32,13 @@
         CGFloat gravity = [_configuration[@"gravity"] floatValue];
         _space.gravity = ccp(0.0f, -gravity);
         
+        // Register collision handler
+        [_space setDefaultCollisionHandler:self
+                                     begin:@selector(collisionBegan:space:)
+                                  preSolve:nil
+                                 postSolve:nil
+                                  separate:nil];
+        
         // Setup world
         [self generateRandomWind];
         [self setupGraphicsLandscape];
@@ -46,6 +54,10 @@
         _tank = [[Tank alloc] initWithSpace:_space position:CGPointFromString(tankPositionString)];
         [_gameNode addChild:_tank];
         
+        // Add goal
+        _goal = [[Goal alloc] initWithSpace:_space position:CGPointFromString(_configuration[@"goalPosition"])];
+        [_gameNode addChild:_goal];
+        
         // Create a input layer
         InputLayer *inputLayer = [[InputLayer alloc] init];
         inputLayer.delegate = self;
@@ -55,6 +67,22 @@
         [self scheduleUpdate];
     }
     return self;
+}
+
+- (bool)collisionBegan:(cpArbiter *)arbiter space:(ChipmunkSpace*)space {
+    cpBody *firstBody;
+    cpBody *secondBody;
+    cpArbiterGetBodies(arbiter, &firstBody, &secondBody);
+    
+    ChipmunkBody *firstChipmunkBody = firstBody->data;
+    ChipmunkBody *secondChipmunkBody = secondBody->data;
+    
+    if ((firstChipmunkBody == _tank.chipmunkBody && secondChipmunkBody == _goal.chipmunkBody) ||
+        (firstChipmunkBody == _goal.chipmunkBody && secondChipmunkBody == _tank.chipmunkBody)){
+        NSLog(@"TANK HIT GOAL :D:D:D xoxoxo");
+    }
+    
+    return YES;
 }
 
 - (void)setupGraphicsLandscape
@@ -151,6 +179,9 @@
 
 - (void)touchEndedAtPositon:(CGPoint)position afterDelay:(NSTimeInterval)delay
 {
+    position = [_gameNode convertToNodeSpace:position];
+    NSLog(@"touch: %@", NSStringFromCGPoint(position));
+    NSLog(@"tank: %@", NSStringFromCGPoint(_tank.position));
     _followTank = YES;
     cpVect normalizedVector = cpvnormalize(cpvsub(position, _tank.position));
     [_tank jumpWithPower:delay * 300 vector:normalizedVector];

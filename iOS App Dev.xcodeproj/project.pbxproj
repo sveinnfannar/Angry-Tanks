@@ -150,6 +150,11 @@
 		0B3130E117E85D0D00D0829B /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B3130E017E85D0D00D0829B /* ImageIO.framework */; };
 		0B31313D17E85ECE00D0829B /* libChipmunkPro-iPhone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B31313B17E85ECE00D0829B /* libChipmunkPro-iPhone.a */; };
 		0B31314017E8662800D0829B /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B31313F17E8662800D0829B /* GameScene.m */; };
+		0B38002B17F1EC9300236BB5 /* Goal.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B38002A17F1EC9300236BB5 /* Goal.m */; };
+		0B38002E17F1EF0300236BB5 /* Goal.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B38002C17F1EF0300236BB5 /* Goal.png */; };
+		0B38002F17F1EF0300236BB5 /* Goal-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B38002D17F1EF0300236BB5 /* Goal-hd.png */; };
+		0B38003217F1FB7B00236BB5 /* Fired.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0B38003017F1FB7B00236BB5 /* Fired.wav */; };
+		0B38003317F1FB7B00236BB5 /* Impact.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0B38003117F1FB7B00236BB5 /* Impact.wav */; };
 		0B89900317EB568F00D856EB /* Tank.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B89900217EB568F00D856EB /* Tank.m */; };
 		0B89900617EB56BB00D856EB /* Tank-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B89900417EB56BB00D856EB /* Tank-hd.png */; };
 		0B89900717EB56BB00D856EB /* Tank.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B89900517EB56BB00D856EB /* Tank.png */; };
@@ -488,6 +493,12 @@
 		0B31313C17E85ECE00D0829B /* ObjectiveChipmunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectiveChipmunk.h; sourceTree = "<group>"; };
 		0B31313E17E8662800D0829B /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 		0B31313F17E8662800D0829B /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
+		0B38002917F1EC9300236BB5 /* Goal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Goal.h; sourceTree = "<group>"; };
+		0B38002A17F1EC9300236BB5 /* Goal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Goal.m; sourceTree = "<group>"; };
+		0B38002C17F1EF0300236BB5 /* Goal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Goal.png; sourceTree = "<group>"; };
+		0B38002D17F1EF0300236BB5 /* Goal-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Goal-hd.png"; sourceTree = "<group>"; };
+		0B38003017F1FB7B00236BB5 /* Fired.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Fired.wav; sourceTree = "<group>"; };
+		0B38003117F1FB7B00236BB5 /* Impact.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Impact.wav; sourceTree = "<group>"; };
 		0B89900117EB568F00D856EB /* Tank.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tank.h; sourceTree = "<group>"; };
 		0B89900217EB568F00D856EB /* Tank.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tank.m; sourceTree = "<group>"; };
 		0B89900417EB56BB00D856EB /* Tank-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tank-hd.png"; sourceTree = "<group>"; };
@@ -567,6 +578,8 @@
 				0B3130D917E85CF400D0829B /* IntroLayer.m */,
 				0B89900117EB568F00D856EB /* Tank.h */,
 				0B89900217EB568F00D856EB /* Tank.m */,
+				0B38002917F1EC9300236BB5 /* Goal.h */,
+				0B38002A17F1EC9300236BB5 /* Goal.m */,
 				0B312F4217E85CF200D0829B /* Resources */,
 				0B312F5A17E85CF200D0829B /* libs */,
 				0B3130CE17E85CF400D0829B /* Supporting Files */,
@@ -577,6 +590,10 @@
 		0B312F4217E85CF200D0829B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0B38003017F1FB7B00236BB5 /* Fired.wav */,
+				0B38003117F1FB7B00236BB5 /* Impact.wav */,
+				0B38002C17F1EF0300236BB5 /* Goal.png */,
+				0B38002D17F1EF0300236BB5 /* Goal-hd.png */,
 				0B89900417EB56BB00D856EB /* Tank-hd.png */,
 				0B89900517EB56BB00D856EB /* Tank.png */,
 				0B0397FC17E8C8D000210E20 /* Cloud-hd.png */,
@@ -1085,9 +1102,13 @@
 				0B312F4417E85CF200D0829B /* Default.png in Resources */,
 				0B312F4617E85CF200D0829B /* Default@2x.png in Resources */,
 				0B312F4817E85CF200D0829B /* Default-568h@2x.png in Resources */,
+				0B38002F17F1EF0300236BB5 /* Goal-hd.png in Resources */,
+				0B38003317F1FB7B00236BB5 /* Impact.wav in Resources */,
 				0B312F4A17E85CF200D0829B /* Default-Landscape~ipad.png in Resources */,
 				0B312F4C17E85CF200D0829B /* Icon-72.png in Resources */,
 				0B312F4E17E85CF200D0829B /* Icon-Small-50.png in Resources */,
+				0B38003217F1FB7B00236BB5 /* Fired.wav in Resources */,
+				0B38002E17F1EF0300236BB5 /* Goal.png in Resources */,
 				0B312F5017E85CF200D0829B /* Icon-Small.png in Resources */,
 				0B312F5217E85CF200D0829B /* Icon-Small@2x.png in Resources */,
 				0B312F5417E85CF200D0829B /* Icon.png in Resources */,
@@ -1183,6 +1204,7 @@
 				0B31303A17E85CF400D0829B /* cocos2d.m in Sources */,
 				0B31304117E85CF400D0829B /* CCDirectorIOS.m in Sources */,
 				0B31304417E85CF400D0829B /* CCES2Renderer.m in Sources */,
+				0B38002B17F1EC9300236BB5 /* Goal.m in Sources */,
 				0B31304817E85CF400D0829B /* CCGLView.m in Sources */,
 				0B31304C17E85CF400D0829B /* CCTouchDispatcher.m in Sources */,
 				0B31304F17E85CF400D0829B /* CCTouchHandler.m in Sources */,
