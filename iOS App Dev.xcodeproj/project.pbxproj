@@ -15,6 +15,7 @@
 		0B0397FE17E8C8D000210E20 /* Cloud-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B0397FC17E8C8D000210E20 /* Cloud-hd.png */; };
 		0B0397FF17E8C8D000210E20 /* Cloud.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B0397FD17E8C8D000210E20 /* Cloud.png */; };
 		0B0A7CA917F1FFE7000F7141 /* WaterSplash.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B0A7CA817F1FFE7000F7141 /* WaterSplash.plist */; };
+		0B0A7CAC17F201BF000F7141 /* MenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B0A7CAB17F201BF000F7141 /* MenuScene.m */; };
 		0B312F2E17E85CF200D0829B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B312F2D17E85CF200D0829B /* QuartzCore.framework */; };
 		0B312F3017E85CF200D0829B /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B312F2F17E85CF200D0829B /* OpenGLES.framework */; };
 		0B312F3217E85CF200D0829B /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B312F3117E85CF200D0829B /* OpenAL.framework */; };
@@ -171,6 +172,8 @@
 		0B0397FC17E8C8D000210E20 /* Cloud-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Cloud-hd.png"; sourceTree = "<group>"; };
 		0B0397FD17E8C8D000210E20 /* Cloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cloud.png; sourceTree = "<group>"; };
 		0B0A7CA817F1FFE7000F7141 /* WaterSplash.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WaterSplash.plist; sourceTree = "<group>"; };
+		0B0A7CAA17F201BF000F7141 /* MenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuScene.h; sourceTree = "<group>"; };
+		0B0A7CAB17F201BF000F7141 /* MenuScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuScene.m; sourceTree = "<group>"; };
 		0B312F2A17E85CF200D0829B /* iOS App Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS App Dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B312F2D17E85CF200D0829B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		0B312F2F17E85CF200D0829B /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -578,6 +581,8 @@
 				0B89900917EB61F300D856EB /* InputLayer.m */,
 				0B3130D817E85CF400D0829B /* IntroLayer.h */,
 				0B3130D917E85CF400D0829B /* IntroLayer.m */,
+				0B0A7CAA17F201BF000F7141 /* MenuScene.h */,
+				0B0A7CAB17F201BF000F7141 /* MenuScene.m */,
 				0B89900117EB568F00D856EB /* Tank.h */,
 				0B89900217EB568F00D856EB /* Tank.m */,
 				0B38002917F1EC9300236BB5 /* Goal.h */,
@@ -1179,6 +1184,7 @@
 				0B312FD217E85CF300D0829B /* CCParallaxNode.m in Sources */,
 				0B312FD517E85CF300D0829B /* CCParticleBatchNode.m in Sources */,
 				0B312FD817E85CF300D0829B /* CCParticleExamples.m in Sources */,
+				0B0A7CAC17F201BF000F7141 /* MenuScene.m in Sources */,
 				0B312FDB17E85CF300D0829B /* CCParticleSystem.m in Sources */,
 				0B312FDE17E85CF300D0829B /* CCParticleSystemQuad.m in Sources */,
 				0B312FE117E85CF300D0829B /* CCPhysicsDebugNode.m in Sources */,
