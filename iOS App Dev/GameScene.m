@@ -11,6 +11,7 @@
 #import "InputLayer.h"
 #import "ChipmunkAutoGeometry.h"
 #import "Goal.h"
+#import "SimpleAudioEngine.h"
 
 @implementation GameScene
 
@@ -63,6 +64,9 @@
         inputLayer.delegate = self;
         [self addChild:inputLayer];
         
+        // Preload sound effects
+        [[SimpleAudioEngine sharedEngine] preloadEffect:@"Impact.wav"];
+        
         // Your initilization code goes here
         [self scheduleUpdate];
     }
@@ -80,6 +84,8 @@
     if ((firstChipmunkBody == _tank.chipmunkBody && secondChipmunkBody == _goal.chipmunkBody) ||
         (firstChipmunkBody == _goal.chipmunkBody && secondChipmunkBody == _tank.chipmunkBody)){
         NSLog(@"TANK HIT GOAL :D:D:D xoxoxo");
+        
+        [[SimpleAudioEngine sharedEngine] playEffect:@"Impact.wav" pitch:(CCRANDOM_0_1() * 0.3f) + 1 pan:0 gain:1];
     }
     
     return YES;
