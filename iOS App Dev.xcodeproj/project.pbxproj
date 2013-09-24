@@ -14,6 +14,7 @@
 		0B0397FB17E8C78900210E20 /* Configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B0397FA17E8C78900210E20 /* Configuration.plist */; };
 		0B0397FE17E8C8D000210E20 /* Cloud-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B0397FC17E8C8D000210E20 /* Cloud-hd.png */; };
 		0B0397FF17E8C8D000210E20 /* Cloud.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B0397FD17E8C8D000210E20 /* Cloud.png */; };
+		0B0A7CA917F1FFE7000F7141 /* WaterSplash.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B0A7CA817F1FFE7000F7141 /* WaterSplash.plist */; };
 		0B312F2E17E85CF200D0829B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B312F2D17E85CF200D0829B /* QuartzCore.framework */; };
 		0B312F3017E85CF200D0829B /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B312F2F17E85CF200D0829B /* OpenGLES.framework */; };
 		0B312F3217E85CF200D0829B /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B312F3117E85CF200D0829B /* OpenAL.framework */; };
@@ -169,6 +170,7 @@
 		0B0397FA17E8C78900210E20 /* Configuration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configuration.plist; sourceTree = "<group>"; };
 		0B0397FC17E8C8D000210E20 /* Cloud-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Cloud-hd.png"; sourceTree = "<group>"; };
 		0B0397FD17E8C8D000210E20 /* Cloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cloud.png; sourceTree = "<group>"; };
+		0B0A7CA817F1FFE7000F7141 /* WaterSplash.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WaterSplash.plist; sourceTree = "<group>"; };
 		0B312F2A17E85CF200D0829B /* iOS App Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS App Dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B312F2D17E85CF200D0829B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		0B312F2F17E85CF200D0829B /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -590,6 +592,7 @@
 		0B312F4217E85CF200D0829B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0B0A7CA817F1FFE7000F7141 /* WaterSplash.plist */,
 				0B38003017F1FB7B00236BB5 /* Fired.wav */,
 				0B38003117F1FB7B00236BB5 /* Impact.wav */,
 				0B38002C17F1EF0300236BB5 /* Goal.png */,
@@ -1112,6 +1115,7 @@
 				0B312F5017E85CF200D0829B /* Icon-Small.png in Resources */,
 				0B312F5217E85CF200D0829B /* Icon-Small@2x.png in Resources */,
 				0B312F5417E85CF200D0829B /* Icon.png in Resources */,
+				0B0A7CA917F1FFE7000F7141 /* WaterSplash.plist in Resources */,
 				0B312F5617E85CF200D0829B /* Icon@2x.png in Resources */,
 				0B312F5917E85CF200D0829B /* iTunesArtwork in Resources */,
 				0B3130B217E85CF400D0829B /* ChangeLog in Resources */,
@@ -1309,8 +1313,9 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/iOS App Dev/ChipmunkPro-iPhone-Trial\"",
-					"\"$(SRCROOT)/iOS App Dev/libs/ChipmunkPro-iPhone-Trial\"",
+					"\\\"$(SRCROOT)/iOS\\ App\\ Dev/ChipmunkPro-iPhone-Trial\\\"",
+					"\\\"$(SRCROOT)/iOS\\ App\\ Dev/libs/ChipmunkPro-iPhone-Trial\\\"",
+					"/Users/sveinnfannar/Desktop/Tank\\ In\\ Class/iOS\\ App\\ Dev/Tank/Tank/ChipmunkPro-iPhone-Trial",
 				);
 				OTHER_LDFLAGS = (
 					"-lz",
@@ -1335,8 +1340,9 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/iOS App Dev/ChipmunkPro-iPhone-Trial\"",
-					"\"$(SRCROOT)/iOS App Dev/libs/ChipmunkPro-iPhone-Trial\"",
+					"\\\"$(SRCROOT)/iOS\\ App\\ Dev/ChipmunkPro-iPhone-Trial\\\"",
+					"\\\"$(SRCROOT)/iOS\\ App\\ Dev/libs/ChipmunkPro-iPhone-Trial\\\"",
+					"/Users/sveinnfannar/Desktop/Tank\\ In\\ Class/iOS\\ App\\ Dev/Tank/Tank/ChipmunkPro-iPhone-Trial",
 				);
 				OTHER_LDFLAGS = (
 					"-lz",

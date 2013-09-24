@@ -23,6 +23,7 @@
     ChipmunkSpace *_space;
     ccTime _accumulator;
     CCParallaxNode *_parallaxNode;
+    CCParticleSystemQuad *_splashParticles;
     CCNode *_gameNode;
     BOOL _followTank;
     CGFloat _landscapeWidth;

@@ -64,6 +64,12 @@
         inputLayer.delegate = self;
         [self addChild:inputLayer];
         
+        // Setup particle system
+        _splashParticles = [CCParticleSystemQuad particleWithFile:@"WaterSplash.plist"];
+        _splashParticles.position = _goal.position;
+        [_splashParticles stopSystem];
+        [_gameNode addChild:_splashParticles];
+        
         // Preload sound effects
         [[SimpleAudioEngine sharedEngine] preloadEffect:@"Impact.wav"];
         
@@ -85,7 +91,20 @@
         (firstChipmunkBody == _goal.chipmunkBody && secondChipmunkBody == _tank.chipmunkBody)){
         NSLog(@"TANK HIT GOAL :D:D:D xoxoxo");
         
+        // Play sfx
         [[SimpleAudioEngine sharedEngine] playEffect:@"Impact.wav" pitch:(CCRANDOM_0_1() * 0.3f) + 1 pan:0 gain:1];
+        
+        // Remove physics body
+        [_space smartRemove:_tank.chipmunkBody];
+        for (ChipmunkShape *shape in _tank.chipmunkBody.shapes) {
+            [_space smartRemove:shape];
+        }
+        
+        // Remove tank from cocos2d
+        [_tank removeFromParentAndCleanup:YES];
+        
+        // Play particle effect
+        [_splashParticles resetSystem];
     }
     
     return YES;
